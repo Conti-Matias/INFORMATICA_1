@@ -2,7 +2,7 @@
 file: media numeri
 autore: Conti Gallenti Matias
 classe: 3H
-data: 21/09/2022
+data: 28/09/2022
 
 imput: tre numeri 
 elaborazione: media
@@ -30,7 +30,7 @@ int main()
 	ris = (num1 + num2 + num3) / 3;
 	
 	//output: un numero intero
-	printf("il risultato è %.2f", ris);
+	printf("il risultato Ã¨ %.2f", ris);
 	
 	//termine del programma
 	return 0;
