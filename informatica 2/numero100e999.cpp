@@ -1,7 +1,7 @@
 /** ****************************************************************************************
 * \mainpage numerotra100e999
 *
-* @brief Dato un numero inserito dall’utente, compreso tra 100 e 999, stampalo in modo che ogni cifra sia separata dalle altre da uno spazio.
+* @brief Dato un numero inserito dallâ€™utente, compreso tra 100 e 999, stampalo in modo che ogni cifra sia separata dalle altre da uno spazio.
 * Il progetto accetta ogni tipo di numero tra 100 e 999
 * 
 * @author conti gallenti matias
