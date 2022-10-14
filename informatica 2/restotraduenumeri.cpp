@@ -26,7 +26,7 @@ int main()
 resto = num1 % num2; //calcolo del resto
 
 	//output
-	printf("il risultato è %d", resto);// stampa risultato
+	printf("il risultato Ã¨ %d", resto);// stampa risultato
 	
 	//termine del programma
 	return 0;
