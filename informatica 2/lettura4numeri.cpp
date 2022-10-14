@@ -2,7 +2,7 @@
 * \mainpage lettura4numeri
 *
 * @brief Scrivi un programma che legge in ingresso 4 numeri che sono i coefficienti di un
- polinomio -ax^3 +bx^2 - c^x + d e valuta il suo valore in un punto x, sempre inserito dall’utente>
+ polinomio -ax^3 +bx^2 - c^x + d e valuta il suo valore in un punto x, sempre inserito dallâ€™utente>
 * accetta numeri positivi
 * <specifiche del collaudo>
 * 
@@ -36,7 +36,7 @@ int main()
 	
 	risultato = (-a*(pow(x,3)) + b*(pow(x,2)) - c*x + d); //calcolo risultato	
 
-    printf("il risultato è %.2f", risultato); //scrittura risultato
+    printf("il risultato Ã¨ %.2f", risultato); //scrittura risultato
 
 	//termine del programma
 	return 0;
