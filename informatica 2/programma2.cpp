@@ -31,7 +31,7 @@ int main()
 	ris = num1 + num2;
 	
 	//output: un numero intero
-	printf("il risultato è %d", ris);
+	printf("il risultato Ã¨ %d", ris);
 	
 	//termine del programma
 	return 0;
