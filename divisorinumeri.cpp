@@ -10,13 +10,14 @@
 
 int main() 
 {
-	int n1, n2;
+	int n1;
+	int n2;      //contatore
 	printf("Inserisci un numero: ");
 	scanf("%d",&n1);
 	
-	for(n2=2;n2<=n1/2;n2++)
+	for(n2=2;n2<=n1/2;n2++)     	//ciclo per trovare i divisori del numero inserito partendo da 2
 	{
-		if(n1%n2==0)
+		if(n1%n2==0)		//controllo se il contatore e' un divisore
 			printf("un divisore e' %d\n",n2);
 	}
 	
