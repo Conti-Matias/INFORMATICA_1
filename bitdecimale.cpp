@@ -1,5 +1,5 @@
 /** ****************************************************************************************
-* \mainpage fattorialenumero
+* \mainpage bitdecimale
 * Scrivere un programma che converte un numero binario a 8 bit in un numero decimale. 
 * L’utente inserisce le cifre del numero binario un bit alla volta, partendo dal bit più significativo. 
 * Il programma dovrà visualizzare il numero decimale corrispondente. Suggerimento: per calcolare le potenze
