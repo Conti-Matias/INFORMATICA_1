@@ -12,15 +12,16 @@
 int main()  
 {
     printf("Matias Conti Gallenti\n");
-    int n1, ris;        
+    int n1;
+    int ris;        
 
     printf("Inserisci un numero:\n ");    
     scanf("%d", &n1);
 
-    if(n1>0) 
+    if(n1>0) //se n1 è positivo
 		{                           
         	for(ris=n1-1; ris>0; ris--) 
-				{
+				{		//moltiplico n1 per tutti i minori di esso
             	n1 *= ris;                   
        			}
 
@@ -28,6 +29,6 @@ int main()
    		}
     else 
 		{
-        	printf("non e' possibile calcolare il fattoriale");     
+        	printf("non e' possibile calcolare il fattoriale");     //se il numero è negativo stampa questo
    		}
 }
