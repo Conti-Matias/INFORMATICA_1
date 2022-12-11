@@ -15,7 +15,7 @@ int main()
     int cont=0;   //variabile di controllo   
 	printf("Matias Conti Gallenti\nverranno stampati i numeri primi da 1 a 100\n");
 	
-	for(i=1; i<101; i++) //controlli i numeri da 2 a 100
+	for(i=1; i<101; i++) //controlli i numeri da 1 a 100
 	{
 		for(j=2;j<=i/2;j++)     //controlli se ha dei divisori
 	{
