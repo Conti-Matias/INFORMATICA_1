@@ -11,7 +11,7 @@
 
 int main()  
 {
-    int n1, n2;
+    int n1, n2;	 //contatori
     int ris=1;   //variabile di controllo   
 	printf("Matias Conti Gallenti\nverranno stampati i numeri primi da 1 a 100\n");
 
