@@ -13,19 +13,20 @@ int main()
 {
     printf("Matias Conti Gallenti\n");
     int n1;
-    int ris;        
+    int i; 
+	int r=1;       
 
     printf("Inserisci un numero:\n ");    
     scanf("%d", &n1);
 
     if(n1>0) //se n1 è positivo
 		{                           
-        	for(ris=0;ris<=n1;ris++) 
+        	for(i=1;i<=n1;i++) 
 				{		//moltiplico n1 per tutti i minori di esso
-            	n1 *= ris;                   
+            	r=r*i;                   
        			}
 
-        printf("il fattoriale e' %d", n1);    
+        printf("il fattoriale e' %d", r);    
    		}
     else 
 		{
