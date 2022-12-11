@@ -14,16 +14,18 @@
 int main()  
 {
     printf("Matias Conti Gallenti\n");
-    int n1=0, cont=7, int BIT;
+    int n1=0, i=7; 
+	int BIT;
+	
 
     printf("inserire 8 bit\n");    
     do		//fare
 		{
         	scanf("%d", &BIT);     //non ripete ogni volta la richiesta    
-			n1 += pow(2, ris) * BIT;   //convero il bit in decimale
-			cont=cont-1;                 //tolgo a cont 1       
+			n1=n1+pow(2, i) * BIT;   //convero il bit in decimale
+			i=i-1;                 //tolgo a cont 1       
     	} 	
-	while (cont>-1);  //mentre cont è maggiore di -1             
+	while (i>-1);  //mentre cont è maggiore di -1             
 
     printf("binario=%d", n1);        
 }
