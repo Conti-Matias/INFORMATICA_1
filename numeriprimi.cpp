@@ -18,9 +18,9 @@ int main()
     for(n1=2; n1<101; n1++) //ripeto i numeri da 2 a 100
 	{       
     	for(n2=2; n2<n1; n2++) //ripeto tutti i numeri da 2 a n1
-			{    
-            	if(n1%n2==0) //se il resto tra n1/n2 è 0 ris è falso
-                ris=0;          
+		{    
+            		if(n1%n2==0) //se il resto tra n1/n2 è 0 ris è falso
+               		ris=0;          
         	}
         if(ris) //stampo n1 solo se ris è vero
             printf("%d e' un numero primo \n", n1);
