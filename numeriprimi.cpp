@@ -11,19 +11,20 @@
 
 int main()  
 {
-    int n1, n2;	 //contatori
-    int ris=1;   //variabile di controllo   
+    int i, j;	 //contatori
+    int cont=0;   //variabile di controllo   
 	printf("Matias Conti Gallenti\nverranno stampati i numeri primi da 1 a 100\n");
-
-    for(n1=2; n1<101; n1++) //ripeto i numeri da 2 a 100
-	{       
-    	for(n2=2; n2<n1; n2++) //ripeto tutti i numeri da 2 a n1
-		{    
-            		if(n1%n2==0) //se il resto tra n1/n2 è 0 ris è falso
-               		ris=0;          
-        	}
-        if(ris) //stampo n1 solo se ris è vero
-            printf("%d e' un numero primo \n", n1);
-            ris=1;
-    }
+	
+	for(i=1; i<101; i++) //controlli i numeri da 2 a 100
+	{
+		for(j=2;j<=i/2;j++)     //controlli se ha dei divisori
+	{
+		if(i%j==0)		
+			cont++;
+	}
+	if(cont!=0)		//se ha dei divisori resetti il contatore
+		cont=0;
+	else		//é un numero primo
+		printf("%d e un numero primo\n",i);
+	}
 }
