@@ -20,7 +20,7 @@ int main()
 
     if(n1>0) //se n1 è positivo
 		{                           
-        	for(ris=n1-1; ris>0; ris--) 
+        	for(ris=0;ris<=n1;ris++) 
 				{		//moltiplico n1 per tutti i minori di esso
             	n1 *= ris;                   
        			}
