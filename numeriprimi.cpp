@@ -18,10 +18,10 @@ int main()
 	for(i=1; i<101; i++) //controlli i numeri da 1 a 100
 	{
 		for(j=2;j<=i/2;j++)     //controlli se ha dei divisori
-	{
+		{
 		if(i%j==0)		
 			cont++;
-	}
+		}
 	if(cont!=0)		//se ha dei divisori resetti il contatore
 		cont=0;
 	else		//é un numero primo
