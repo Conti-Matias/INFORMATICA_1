@@ -30,26 +30,28 @@ int main()
 	//variabili per l'area del rettangolo
 	int ris=0;
 	int base, altezza;
-	//menu
-	men=menu();
-	switch(men)
-	{
-		case 0:printf("arrivederci");
-			break;
-		//MCD
-		case 1:printf("inserire il primo numero\n");
-		       scanf("%d",&N);
-		       printf("inserire il secondo numero\n");
-		       scanf("%d",&n);
-		       f=MCD(N,n);
-		       printf("l'MCD e' %d\n",f);
-		break;
-		//somma_divisore
-		case 2:printf("Inserisci il primo numero:\n");
-	               scanf("%d",&n1);
-           	       r=somma_divisore(n1);
+	do
+		{
+		//menu
+		men=menu();
+		switch(men)
+		{
+			case 0:printf("arrivederci");
+				break;
+			//MCD
+			case 1:printf("inserire il primo numero\n");
+			       scanf("%d",&N);
+			       printf("inserire il secondo numero\n");
+			       scanf("%d",&n);
+			       f=MCD(N,n);
+			       printf("l'MCD e' %d\n",f);
+				break;
+			//somma_divisore
+			case 2:printf("Inserisci il primo numero:\n");
+		           scanf("%d",&n1);
+    	       	   r=somma_divisore(n1);
 	               printf("la somma dei divisori e' %d\n",r);
-	        break;
+	       		break;
 	        //area_rettangolo
 	        case 3:printf("Inserisci la base:\n");
 	               scanf("%d",&base);
@@ -57,9 +59,15 @@ int main()
 	               scanf("%d",&altezza);
 	               ris=area_rettangolo(base, altezza);
 	               printf("%d",ris);
-	    	break;
+	    		break;
 	        default:printf("numero sbagliato");
-	}	
+		}	
+		 //codice per pulire lo schermo   
+		system("pause");
+			system("cls");
+	}
+
+while(men!=0);
 }
 
 int menu(void)//funzione per il menu
