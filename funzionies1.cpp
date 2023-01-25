@@ -19,29 +19,33 @@
 
 /******************************************************************************************
 * @brief <Scrivere una funzione chiamata "mcd" che prende in input due numeri interi e    *
-* restituisce il loro massimo comune divisore utilizzando l'algoritmo di Euclide.>
-* @param  <In entrata i due numeri di cui si vuole sapere l'MCD>
-* @retval <MCD>*/
+* restituisce il loro massimo comune divisore utilizzando l'algoritmo di Euclide.>		  *
+* @param  <In entrata i due numeri di cui si vuole sapere l'MCD>						  *
+* @retval <MCD>																              *
+******************************************************************************************/
 int MCD(int, int);
 
 /******************************************************************************************
 * @brief <Scrivere una funzione chiamata "somma_divisori" che prende in input un numero   *
-* intero e restituisce la somma dei suoi divisori.>
-* @param  <In entrata il numero di cui si vuole sapere la somma dei divisori>
-* @retval <La somma dei divisori del numero in entrata>*/
+* intero e restituisce la somma dei suoi divisori.>										  *
+* @param  <In entrata il numero di cui si vuole sapere la somma dei divisori>			  *
+* @retval <La somma dei divisori del numero in entrata>								 	  *
+******************************************************************************************/
 int somma_divisore(int);
 
 /******************************************************************************************
 * @brief <Scrivere una funzione chiamata "area_rettangolo" che prende in input la base    *
-*  e l'altezza di un rettangolo e restituisce l'area.>
-* @param  <In entrata la base e l'altezza del rettangolo>
-* @retval <la base dei numeri in entrata>*/
+*  e l'altezza di un rettangolo e restituisce l'area.>									  *
+* @param  <In entrata la base e l'altezza del rettangolo>								  *
+* @retval <la base dei numeri in entrata>											      *
+******************************************************************************************/
 int area_rettangolo(int, int);
 
 /******************************************************************************************
-* @brief <funzione per far apparire il menu.>
-* @param  <In entrata niente>
-* @retval <la scelta dell'utente>*/
+* @brief <funzione per far apparire il menu.>											  *
+* @param  <In entrata niente>															  *
+* @retval <la scelta dell'utente>  														  *
+******************************************************************************************/
 int menu(void);
 
 int main()
@@ -63,31 +67,31 @@ int main()
 		men=menu();
 		switch(men)
 		{
-			case 0:printf("arrivederci\n");
+			case 0:printf("arrivederci\n\n");
 				break;
 			//MCD
-			case 1:printf("inserire il primo numero\n");
+			case 1:printf("inserire il primo numero\n\n");
 			       scanf("%d",&N);
-			       printf("inserire il secondo numero\n");
+			       printf("inserire il secondo numero\n\n");
 			       scanf("%d",&n);
 			       f=MCD(N,n);
-			       printf("l'MCD e' %d\n",f);
+			       printf("l'MCD e' %d\n\n",f);
 				break;
 			//somma_divisore
-			case 2:printf("Inserisci il primo numero:\n");
+			case 2:printf("Inserisci il primo numero:\n\n");
 		           scanf("%d",&n1);
     	       	   r=somma_divisore(n1);
-	               printf("la somma dei divisori e' %d\n",r);
+	               printf("la somma dei divisori e' %d\n\n",r);
 	       		break;
 	        //area_rettangolo
-	        case 3:printf("Inserisci la base:\n");
+	        case 3:printf("Inserisci la base:\n\n");
 	               scanf("%d",&base);
-	               printf("Inserisci l'altezza:\n");
+	               printf("Inserisci l'altezza:\n\n");
 	               scanf("%d",&altezza);
 	               ris=area_rettangolo(base, altezza);
-	               printf("L'area del rettangolo e' %d\n",ris);
+	               printf("L'area del rettangolo e' %d\n\n",ris);
 	    		break;
-	        default:printf("numero sbagliato\n");
+	        default:printf("numero sbagliato\n\n");
 		}	
 		 //codice per pulire lo schermo   
 		system("pause");
