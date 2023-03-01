@@ -12,17 +12,11 @@
 #include <stdlib.h> // exit  
 
 int pari_dispari(int);
-
 int fibonacci(int);
-
 int somma_divisore(int);
-
 void trova_numeri_amici(void);
-
 int numeri_amici(int);
-
 int somma_divisore2(int);
-
 int menu(void);
 
 int main()
@@ -45,22 +39,22 @@ int main()
 				break;
 			//pari_dispari
 			case 1:printf("inserire un numero intero\n\n");
-			       scanf("%d",&N);
-			       f=pari_dispari(N);
-			       if(f==1)
-			           {
-			       			printf("e' dispari\n\n");
-				       }
-				   else
-				   	   {
-				   	   		printf("e' pari\n\n");
-					   }
+				scanf("%d",&N);
+				f=pari_dispari(N);
+				if(f==1)
+				{
+					printf("e' dispari\n\n");
+				}
+				else
+				{
+					printf("e' pari\n\n");
+				}
 				break;
 			//fibonacci
 			case 2:printf("inserire un numero intero\n\n");
-			       scanf("%d",&ri);
-				   r=fibonacci(ri);
-	       		break;
+				scanf("%d",&ri);
+				r=fibonacci(ri);
+				break;
 	       	//somma divisori
 	       	case 3:printf("Inserisci il primo numero:\n\n");
 		           scanf("%d",&N);
