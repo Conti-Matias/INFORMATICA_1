@@ -142,3 +142,27 @@ void ScambiaMat (int m[][C],int x)
 		}	
 	return cont;
 }
+
+void Diagonale(int m[][C])
+{
+	for(int i=0,j=0;i<R;i++,j++)
+	{
+		m[i][j]=1;
+	}
+	for(int i=R-1,j=C-1;i>=0;i--,j--)
+	{
+		m[i][j]=0;
+	}
+}
+
+void PitagoricaMat(int m[][C])
+{
+	c=1;
+	for(int i=0;i<R;i++,c++)
+	{
+		for(int j=0;j<C;j++)
+		{
+			m[i][j]= m[i][j];	
+		}
+	}
+}
