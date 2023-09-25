@@ -25,18 +25,22 @@ void caricaStringa(char[][C]);
 void stampaStringa(char[][C]);
 
 //conta caratteri stringa
-int contaCaratteri(char[][C]);
+int indiceLunga(char [][C]);
 
 
-int main() 
+int main()
 {
     char str[R][C];
     int r;
     caricaStringa(str);
 	stampaStringa(str);
-	r = contaCaratteri(str);
+	r = indiceLunga(str);
+	printf("l'indice e' %d",r);
+	
 
 }
+
+void caricaStringa(char s[][C])
 {
     for(int i = 0; i<R; i++)
     {
@@ -54,5 +58,13 @@ void stampaStringa(char s[][C])
     }
 }
 
-
+int indiceLunga(char s[][C])
+{
+    int max = 0;
+    for(int i = 1; i<R; i++)
+    {
+        if(strlen(s[i])>strlen(s[max])) max = i;
+    }
+    return max;
+}
 
