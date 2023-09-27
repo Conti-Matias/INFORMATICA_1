@@ -24,7 +24,7 @@ void caricaStringa(char[][C]);
 //stampa stringa
 void stampaStringa(char[][C]);
 
-//restituisce indice parola piÃ¹ lunga
+//restituisce indice parola più lunga
 int indiceLunga(char [][C]);
 
 
@@ -50,7 +50,7 @@ int main()
 
 }
 
-//nella funzione si chiedano allâ€™utente R stringhe di lunghezza massima C-1//
+//nella funzione si chiedano all’utente R stringhe di lunghezza massima C-1//
 void caricaStringa(char s[][C])
 {
     for(int i = 0; i<R; i++)
@@ -63,14 +63,16 @@ void caricaStringa(char s[][C])
 //stampa sul monitor le stringhe seguite dalla loro lunghezza. Curare la visualizzazione su monitor//
 void stampaStringa(char s[][C])
 {
+	int f=0;
     for(int i = 0; i<R; i++)
     {
-        printf("\n\nstringa %d: ", i);
-        printf("%s", s[i]);
+        f=strlen(s[i]);
+		printf("\nstringa %d: ", i);
+        printf("%s\t\t%d", s[i],f);
     }
 }
 
-//la funzione restituisce lâ€™indice della riga dove Ã¨ memorizzata la stringa piÃ¹ lunga e visualizza nel main la stringa//
+//la funzione restituisce l’indice della riga dove è memorizzata la stringa più lunga e visualizza nel main la stringa//
 int indiceLunga(char s[][C])
 {
     int max = 0;
@@ -83,22 +85,24 @@ int indiceLunga(char s[][C])
 
 /*nella funzione si scambiano tra di loro le stringhe di indice k e t .  
 Eseguita la funzione la stringa della riga k+1 (indice k)  si trovi nella riga t+1 e quella della riga t+1 si trovi nella riga k+1 */
-void scambia(char m[][C], int k, int t)
+void scambia(char s[][C], int k, int t)
 {
 	char z[C];
-	strcpy(z,m[k]);
-	strcpy(m[k],m[t]);
-	strcpy(m[t],z);
+	strcpy(z,s[k]);
+	strcpy(s[k],s[t]);
+	strcpy(s[t],z);
 }
 
-// la funzione restituisce lâ€™indice della stringa che Ã¨ la prima in ordine alfabetico//
-int primaAlfabeto(char m[][C])
+// la funzione restituisce l’indice della stringa che è la prima in ordine alfabetico//
+int primaAlfabeto(char s[][C])
 {
 	int pri=0;
     for(int i = 1; i<R; i++)
     {
-        if(strcmp(m[pri],m[i])>0) 
+        if(strcmp(s[pri],s[i])>0) 
 		pri=i;
     }
     return pri;
 }
+
+
