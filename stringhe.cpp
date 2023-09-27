@@ -39,6 +39,7 @@ void ordina(char [][C]);
 
 int main()
 {
+	printf("Matias Conti Gallenti");
     char str[R][C];
     int r,t;
     caricaStringa(str);
@@ -68,7 +69,7 @@ void stampaStringa(char s[][C])
     {
         f=strlen(s[i]);
 		printf("\nstringa %d: ", i);
-        printf("%s\t\t%d", s[i],f);
+        printf("%s\t\t%d\n", s[i],f);
     }
 }
 
