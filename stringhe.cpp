@@ -24,7 +24,7 @@ void caricaStringa(char[][C]);
 //stampa stringa
 void stampaStringa(char[][C]);
 
-//restituisce indice parola più lunga
+//restituisce indice parola piÃ¹ lunga
 int indiceLunga(char [][C]);
 
 
@@ -51,7 +51,7 @@ int main()
 
 }
 
-//nella funzione si chiedano all’utente R stringhe di lunghezza massima C-1//
+//nella funzione si chiedano allâ€™utente R stringhe di lunghezza massima C-1//
 void caricaStringa(char s[][C])
 {
     for(int i = 0; i<R; i++)
@@ -73,7 +73,7 @@ void stampaStringa(char s[][C])
     }
 }
 
-//la funzione restituisce l’indice della riga dove è memorizzata la stringa più lunga e visualizza nel main la stringa//
+//la funzione restituisce lâ€™indice della riga dove Ã¨ memorizzata la stringa piÃ¹ lunga e visualizza nel main la stringa//
 int indiceLunga(char s[][C])
 {
     int max = 0;
@@ -94,7 +94,7 @@ void scambia(char s[][C], int k, int t)
 	strcpy(s[t],z);
 }
 
-// la funzione restituisce l’indice della stringa che è la prima in ordine alfabetico//
+// la funzione restituisce lâ€™indice della stringa che Ã¨ la prima in ordine alfabetico//
 int primaAlfabeto(char s[][C])
 {
 	int pri=0;
@@ -106,4 +106,18 @@ int primaAlfabeto(char s[][C])
     return pri;
 }
 
+//terminata lâ€™esecuzione della funzione, tutte le stringhe sono in ordine alfabetico//
+void ordina(char stmat[][C])
+{
+    for(int i = 0; i<R-1; i++)
+    {
+        for(int j = i+1; j<R; j++)
+        {
+            if(strcmp(stmat[i], stmat[j]) > 0)
+            {
+                scambia(stmat, i, j);
+            }
+        }
+    }
+}
 
