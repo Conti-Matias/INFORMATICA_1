@@ -58,8 +58,16 @@ int main()
 	stampa(s2);
 }
    
-void stampa(s2)
+void stampa(alunno s2)
 {
-	
+    printf("numero matricola: %d\n", s2.matricola);
+    printf("cognome: %s\n", s2.cognome);
+    printf("giorno di nascita: %d/%d/%d\n", s2.nascita.giorno, s2.nascita.mese, s2.nascita.anno);
+    printf("-voti-\n");
+    for(int i = 0; i<V; i++)
+	{
+        printf("%d\t", s2.voti[i]);
+    }
+    printf("\n");
 }
 
