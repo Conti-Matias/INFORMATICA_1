@@ -49,8 +49,8 @@ int main()
 	scambia(str,2,5);
 	t=primaAlfabeto(str);
 	printf("\nprima parola in ordine alfabetico: %s\n", str[t]);
-	ordina(stmat);
-    	stampaStr(stmat)
+	ordina(str);
+    	stampaStr(str)
 
 }
 
