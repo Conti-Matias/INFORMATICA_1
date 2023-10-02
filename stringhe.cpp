@@ -50,7 +50,6 @@ int main()
 	t=primaAlfabeto(str);
 	printf("\nprima parola in ordine alfabetico: %s\n", str[t]);
 	ordina(str);
-    	stampaStr(str)
 
 }
 
