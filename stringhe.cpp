@@ -109,15 +109,15 @@ int primaAlfabeto(char s[][C])
 }
 
 //terminata l’esecuzione della funzione, tutte le stringhe sono in ordine alfabetico//
-void ordina(char stmat[][C])
+void ordina(char s[][C])
 {
     for(int i = 0; i<R-1; i++)
     {
         for(int j = i+1; j<R; j++)
         {
-            if(strcmp(stmat[i], stmat[j]) > 0)
+            if(strcmp(s[i], s[j]) > 0)
             {
-                scambia(stmat, i, j);
+                scambia(s, i, j);
             }
         }
     }
