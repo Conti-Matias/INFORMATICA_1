@@ -40,6 +40,7 @@ void stampa(s_alunno[]);
 int ricercaCog(s_alunno[], char[]);
 int stampaMedia(s_alunno[]);
 int studenti10(s_alunno[]);
+int OrdinaCog(s_alunno[]);
 
 int main()
 {
@@ -62,6 +63,8 @@ int main()
 
     r = studenti10(s1);
     printf("\nstudenti con almeno un 10: %d\n\n", r);
+    
+    r = OrdinaCog(s1);
 }
 
 void caricaTab(s_alunno s1[])
@@ -91,10 +94,10 @@ void stampa(s_alunno s1[])
     printf("matricola\tcognome\t\tnome\tgiorno\t\tmese\t\tanno\t\tvoti\n");
 	for(int i = 0; i<C; i++)
     {
-        printf("%d%15s%15s%15d%15d%15d\t\t",s1[i].matricola,s1[i].cognome,s1[i].nome,s1[i].nascita.giorno,s1[i].nascita.mese,s1[i].nascita.anno);
+        printf("%d%20s%17s%15d%15d%15d\t\t",s1[i].matricola,s1[i].cognome,s1[i].nome,s1[i].nascita.giorno,s1[i].nascita.mese,s1[i].nascita.anno);
         
-        
-            printf("%d",s1[i].voti);
+        for(int j=0; j<V; j++)
+            printf("%d",s1[i].voti[j]);
         printf("\n");
     }
     
@@ -118,7 +121,8 @@ int stampaMedia(s_alunno s1[])
         for(int j = 0; j<V; j++)
             m += s1[i].voti[j];
         m /= V;
-        if(m>=6) c++;
+        if(m>=6) 
+			c++;
         printf("\nmedia studente %s: %d", s1[i].cognome, m);
     }
     return c;
@@ -130,7 +134,8 @@ int studenti10(s_alunno s1[])
     for(int i = 0; i<C; i++)
     {
         for(int j = 0; j<V; i++)
-            if(s1[i].voti[j] == 10){
+            if(s1[i].voti[j] == 10)
+			{
                 c++;
                 j = V;
             }
@@ -138,4 +143,19 @@ int studenti10(s_alunno s1[])
     return c;
 }
 
-
+int OrdinaCog(s_alunno s1)
+{
+	s_alunno z;
+	for(int i=0;i<C;i++)
+	{
+		for(int j=i+1;j<C;j++)
+		{
+			if(strcmp(s1[i].cognome, s1[j].cognome)>0)
+			{
+				z=s1[i];
+				s1[i]=s1[j];
+				s1[j]=z;
+			}
+		}
+	}
+}
