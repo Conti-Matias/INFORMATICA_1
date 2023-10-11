@@ -143,7 +143,7 @@ int studenti10(s_alunno s1[])
     return c;
 }
 
-int OrdinaCog(s_alunno s1)
+int OrdinaCog(s_alunno s1[])
 {
 	s_alunno z;
 	for(int i=0;i<C;i++)
