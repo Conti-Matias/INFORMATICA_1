@@ -25,23 +25,39 @@ void copiaFile(char[],char[]);
 
 int main()
 {
-    copiaFile("./file/copiaFile/in.txt", "./file/copiaFile/out.txt");
+    copiaFile("in.txt", "out.txt");
 }
 
 
 void copiaFile(char fileIn[], char fileOut[])
 {
+	FILE * err1;
+	FILE * err2;
+	char c;
     //apro i due file
-    FILE * puntIn = fopen(fileIn, "r");
-    FILE * puntOut = fopen(fileOut, "w");
+    err1 = fopen(fileIn, "r");
+    err2 = fopen(fileOut, "a");
 
     //finché il file In non finisce
-    while(!feof(puntIn))
+    if(err1 !=0 && err2 != 0)
     {
-        //copio prossimo carattere in Out
-        putc(getc(puntIn), puntOut);
-    }
+    	printf("i file sono stati aperti correttamente\n");
+		while((c=getc(err1)) !=EOF)
+    	{
+        	//copio prossimo carattere in Out
+        	fputc(c,err2);
+    	}
+    	fclose(err1);
+    	fclose(err2);
+	}
+	else 
+    {
+    	printf("i file non sono stati aperti");
+	}
 }
+    
+
+    	
 
 
 
