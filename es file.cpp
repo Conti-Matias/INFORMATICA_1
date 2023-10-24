@@ -12,7 +12,7 @@
 * 	di numeri di una cifra separati da uno spazio bianco e successivamente scrive 2 file, pari.txt e dispari.txt, 
 * 	nei quali dovrai inserire i numeri che hai letto a seconda del loro valore pari o dispari
 * 5)Scrivere le funzioni cesareCrypt e cesareDecrypt che criptano o decriptano un file in input di una chiave key, 
-* 	usando l’algoritmo di Cesare. Commentare adeguatamente il codice scritto.
+* 	usando lâ€™algoritmo di Cesare. Commentare adeguatamente il codice scritto.
 *                                                                                        
 ********************************************************************************************/
 
@@ -22,10 +22,13 @@
 #include <stdio.h>
 
 void copiaFile(char[],char[]);
+void copiaCarMaiuscoli(char[],char[]);
 
 int main()
 {
-    copiaFile("in.txt", "out.txt");
+    copiaFile("in.txt", "Out.txt");
+    copiaCarMaiuscoli("nomi.txt", "NOMI2.txt");
+   
 }
 
 
@@ -38,13 +41,13 @@ void copiaFile(char fileIn[], char fileOut[])
     err1 = fopen(fileIn, "r");
     err2 = fopen(fileOut, "a");
 
-    //finché il file In non finisce
+    //finchÃ© il file In non finisce
     if(err1 !=0 && err2 != 0)
     {
     	printf("i file sono stati aperti correttamente\n");
 		while((c=getc(err1)) !=EOF)
     	{
-        	//copio prossimo carattere in Out
+        	//copio carattere in Out
         	fputc(c,err2);
     	}
     	fclose(err1);
@@ -56,8 +59,35 @@ void copiaFile(char fileIn[], char fileOut[])
 	}
 }
     
+void copiaCarMaiuscolo(char filenomi[], char fileNOMI2[])
+{
+    FILE * err1;
+	FILE * err2;
+	char c;
+    //apro i due file
+    err1 = fopen(filenomi, "r");
+    err2 = fopen(fileNOMI2, "a");
 
+    //finchÃ© il file In non finisce
+    if(err1 !=0 && err2 != 0)
+    {
+    	printf("i file sono stati aperti correttamente\n");
+		while((c=getc(err1)) !=EOF)
+    	{
+    		if(c >= 'a' && c <= 'z')    
+				c-=32;
+        	//copio carattere in Out
+        	fputc(c,err2);
+        	
+    	}
+    	fclose(err1);
+    	fclose(err2);
+	}
+	else 
+    {
+    	printf("i file non sono stati aperti");
+	}
+}
     	
-
 
 
