@@ -12,7 +12,7 @@
 *  di numeri di una cifra separati da uno spazio bianco e successivamente scrive 2 file, pari.txt e dispari.txt,
 *  nei quali dovrai inserire i numeri che hai letto a seconda del loro valore pari o dispari
 *5)Scrivere le funzioni cesareCrypt e cesareDecrypt che criptano o decriptano un file in input di una chiave key,
-*  usando l’algoritmo di Cesare. Commentare adeguatamente il codice scritto.  *                                                                                        
+*  usando l’algoritmo di Cesare.                                                                                     
 ********************************************************************************************/
 
 //------------------------------------------------------------------------------------------
@@ -25,27 +25,43 @@ void copiafile(char fin[],char fout[]);
 
 void copianome(char fin[],char fout[]);
 
+void contacaratteri(char fin[]);
+
+void contaparidispari(char fin[], char fout1[], char fout2[]);
+
+void cesareCrypt(char[], char[], int);
+
+void cesareDecrypt(char[], char[], int);
+
+
 int main()
 {
     int c;
 
-	copiafile("a/in.txt","a/out.txt");
-    copianome("b/nomi.txt","b/NOMI2.txt");
+	copiafile("in.txt","out.txt");
+    copianome("nomi.txt","NOMI2.txt");
+    contacaratteri("in.txt");
+    contaparidispari("numeri.txt","pari.txt","dispari.txt");
+    cesareCrypt("file.txt", "fileCrypt.txt",6);
+    cesareDecrypt("fileCrypt.txt", "fileDecrypt.txt",6);  
 }
 
 void copiafile(char fin[],char fout[])
 {
+	// apro file In e Out
 	FILE * err1;
     FILE * err2;
     char c;
     err1=fopen(fin,"r");
-    err2=fopen(fout,"a");
-
+    err2=fopen(fout,"w");
+	//controllo se i file si sono aperti
     if(err1 != 0 && err2 != 0)
     {
         printf("i file sono stati aperti \n");
+        // finché il file In non finisce
         while((c=fgetc(err1))!=EOF)
         {
+        	//copio prossimo carattere in Out
             fputc(c,err2);
         }
 
@@ -61,11 +77,12 @@ void copiafile(char fin[],char fout[])
 
 void copianome(char fin[], char fout[])
 {
+	// apro file In e Out
     FILE * err1;
     FILE * err2;
     char c;
     err1=fopen(fin,"r");
-    err2=fopen(fout,"a");
+    err2=fopen(fout,"w");
 
     if(err1 != 0 && err2 != 0)
     {
@@ -88,3 +105,146 @@ void copianome(char fin[], char fout[])
     }
 }
 
+void contacaratteri(char fin[])
+{
+    int cont=0,contr=1,contp=1;
+    char p;
+    // apro file In 
+    FILE * err1;	
+
+    err1=fopen(fin,"r");
+
+    if(err1 != 0)
+    {
+        printf("i file sono stati aperti correttamente\n");
+
+        while((p=fgetc(err1)) != EOF)
+        {
+            if(p==' ' || p=='\n')
+            {
+                contp++;
+            }
+
+            if(p>='A' && p<='Z' || p>='a' && p<='z')
+            {
+                cont++;
+            }
+
+            if(p=='\n')
+            {
+                contr++;
+            }
+            
+
+        }
+
+        fclose(err1);
+    }
+    else 
+    {
+        printf("file non aperto\n");
+    }
+    printf("i caratteri sono %d\n",cont);
+    printf("le parole sono %d\n",contp);
+    printf("le righe sono %d\n",contr);
+}
+
+void contaparidispari(char fin[], char fout1[], char fout2[])
+{
+    char c;
+    // apro file In, Out e Out2
+    FILE * err1;
+    FILE * err2;
+    FILE * err3;
+
+    err1=fopen(fin,"r");
+    err2=fopen(fout1,"w");
+    err3=fopen(fout2,"w");
+
+    if(err1 && err2 && err3 !=0)
+    {
+        printf("\ni file sono stati aperti correttamente\n");
+
+        while((c=fgetc(err1))!= EOF)
+        {
+            if(c % 2== 0 && c != ' ')
+            {
+                if(c+1==' ')
+                {
+                    fputc(c,err2);
+                    putc(' ', err2);
+                }
+                else
+                {
+                   putc(' ', err2);
+                   fputc(c,err2); 
+                }
+            }
+        }
+        fclose(err1);
+        fclose(err2);
+        fclose(err3);
+    }
+    else 
+    {
+        printf("file non aperto\n");
+    }
+}
+
+void cesareCrypt(char fin[],char fout[], int x)
+{
+    char c;
+    FILE * err1;
+    FILE * err2;
+
+    err1=fopen(fin,"r");
+    err2=fopen(fout,"w");
+
+    if(err1 != 0)
+    {
+        printf("il file e' stato aperto correttamente\n");
+        while((c=fgetc(err1))!=EOF)
+            {
+                c = fgetc(err1);
+				if(c != '\n' ) 
+					c += x;
+					
+				putc(c, err2);
+            }
+        fclose(err1);
+        fclose(err2);
+    }
+    else
+    {
+        printf("file non aperto\n");
+    }
+}
+
+void cesareDecrypt(char fin[],char fout[], int x)
+{
+    char c;
+    FILE * err1;
+    FILE * err2;
+
+    err1=fopen(fin,"r");
+    err2=fopen(fout,"w");
+
+    if(err1 != 0)
+    {
+        printf("il file e' stato aperto correttamente\n");
+
+        while((c=fgetc(err1))!=EOF)
+        {
+                c = fgetc(err1);
+				if(c != '\n' ) 
+					c -= x;
+				putc(c, err2);
+        }
+        fclose(err1);
+        fclose(err2);
+    }
+    else
+    {
+        printf("file non aperto\n");
+    }
+}
