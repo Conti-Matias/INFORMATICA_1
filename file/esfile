@@ -161,7 +161,7 @@ void contaparidispari(char fin[], char fout1[], char fout2[])
     err2=fopen(fout1,"w");
     err3=fopen(fout2,"w");
 
-    if(err1 && err2 && err3 !=0)
+    if(err1!=0 && err2!=0 && err3!=0)
     {
         printf("\ni file sono stati aperti correttamente\n");
 
