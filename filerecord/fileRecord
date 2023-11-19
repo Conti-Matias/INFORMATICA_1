@@ -38,6 +38,11 @@ int ricercaCog(char [], char []);
 
 void InfVoti(char[]);
 
+int trova(char[], char[]);
+
+int contaRecord(char[]);
+
+
 int main()
 {
 	int r;
@@ -54,6 +59,12 @@ int main()
 	printf("\n\ncognomi uguali:%d",r);
 	
 	InfVoti("alunni.dat");
+	
+	r = trova("alunni.dat", "Matias");
+    printf("\nposizione sollo: %d\n", r);
+
+    r = contaRecord("alunni.dat");
+    printf("\ndimensione file: %d record\n", r);
     
 }
 
@@ -155,4 +166,42 @@ void InfVoti(char file[])
             printf("\n\n");
         }
     fclose(err1);
+}
+
+int trova(char file[], char nome[])
+{
+    FILE * err1 = fopen(file, "rb");
+
+    alunno buffer;
+    int c=-1;
+
+    if(err1!=NULL)
+        while(!feof(err1))
+        {
+            fread(&buffer, sizeof(alunno), 1, err1);
+
+            if(strcmp(buffer.cognome, nome)==0) 
+            {
+                c = ftell(err1) / sizeof(alunno);
+            }
+        }
+
+    return c;
+    fclose(err1);
+}
+
+int contaRecord(char file[])
+{
+    FILE * err1 = fopen(file, "rb");
+
+    int d = -1;
+
+    if(err1!=NULL)
+    {
+        fseek(err1, 0, SEEK_END);
+        d=ftell(err1);
+    }
+
+    return d/sizeof(alunno);
+
 }
