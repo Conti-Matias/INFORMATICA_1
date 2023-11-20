@@ -30,19 +30,19 @@ struct alunno {
     int voti[V];
 } typedef alunno;
 
-void crea(const char[]);
+void crea(char[]);
 
-void stampa(const char[]);
+void stampa(char[]);
 
-int ricercaCog(const char [], const char []);
+int ricercaCog(char [], char []);
 
-void InfVoti(const char[]);
+void InfVoti(char[]);
 
-int trova(const char[], const char[]);
+int trova(char[], char[]);
 
-int trovaFine(const char[], const char[]);
+int trovaFine(char[], char[]);
 
-int contaRecord(const char[]);
+int contaRecord(char[]);
 
 
 int main()
