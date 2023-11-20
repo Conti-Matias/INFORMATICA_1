@@ -173,7 +173,7 @@ void InfVoti(char file[])
     fclose(err1);
 }
 
-int trovaPrimo(char file[], char nome[])
+int trova(char file[], char nome[])
 {
     FILE * fp = fopen(file, "rb");
 
