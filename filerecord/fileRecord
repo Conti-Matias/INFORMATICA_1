@@ -61,7 +61,7 @@ int main()
 	InfVoti("alunni.dat");
 	
 	r = trova("alunni.dat", "Matias");
-    printf("\nposizione sollo: %d\n", r);
+    printf("\nposizione Matias: %d\n", r);
 
     r = contaRecord("alunni.dat");
     printf("\ndimensione file: %d record\n", r);
