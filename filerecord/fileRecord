@@ -40,6 +40,8 @@ void InfVoti(char[]);
 
 int trova(char[], char[]);
 
+int trovaFine(char[], char[]);
+
 int contaRecord(char[]);
 
 
@@ -61,7 +63,10 @@ int main()
 	InfVoti("alunni.dat");
 	
 	r = trova("alunni.dat", "Matias");
-    printf("\nposizione Matias: %d\n", r);
+    printf("\nposizione primo Matias: %d\n", r);
+    
+    r = trovaFine("alunni.dat", "Matias");
+    printf("\nposizione ultimo Matias: %d\n", r);
 
     r = contaRecord("alunni.dat");
     printf("\ndimensione file: %d record\n", r);
@@ -169,6 +174,28 @@ void InfVoti(char file[])
 }
 
 int trova(char file[], char nome[])
+{
+    FILE * err1 = fopen(file, "rb");
+
+    alunno buffer;
+    int c=-1;
+
+    if(err1!=NULL)
+        while(!feof(err1))
+        {
+            fread(&buffer, sizeof(alunno), 1, err1);
+
+            if(strcmp(buffer.cognome, nome)==0) 
+            {
+                c = ftell(err1) / sizeof(alunno);
+            }
+        }
+
+    return c;
+    fclose(err1);
+}
+
+int trovaFine(char file[], char nome[])
 {
     FILE * err1 = fopen(file, "rb");
 
