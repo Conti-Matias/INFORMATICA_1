@@ -30,19 +30,19 @@ struct alunno {
     int voti[V];
 } typedef alunno;
 
-void crea(char[]);
+void crea(const char[]);
 
-void stampa(char[]);
+void stampa(const char[]);
 
-int ricercaCog(char [], char []);
+int ricercaCog(const char [], const char []);
 
-void InfVoti(char[]);
+void InfVoti(const char[]);
 
-int trova(char[], char[]);
+int trova(const char[], const char[]);
 
-int trovaFine(char[], char[]);
+int trovaFine(const char[], const char[]);
 
-int contaRecord(char[]);
+int contaRecord(const char[]);
 
 
 int main()
@@ -173,27 +173,29 @@ void InfVoti(char file[])
     fclose(err1);
 }
 
-int trova(char file[], char nome[])
+int trovaPrimo(char file[], char nome[])
 {
-    FILE * err1 = fopen(file, "rb");
+    FILE * fp = fopen(file, "rb");
 
     alunno buffer;
     int c=-1;
 
-    if(err1!=NULL)
-        while(!feof(err1))
+    if(fp!=NULL)
+        while(!feof(fp))
         {
-            fread(&buffer, sizeof(alunno), 1, err1);
+            fread(&buffer, sizeof(alunno), 1, fp);
 
             if(strcmp(buffer.cognome, nome)==0) 
             {
-                c = ftell(err1) / sizeof(alunno);
+                c = ftell(fp) / sizeof(alunno);
+                break;
             }
         }
 
     return c;
-    fclose(err1);
+    fclose(fp);
 }
+
 
 int trovaFine(char file[], char nome[])
 {
