@@ -74,6 +74,8 @@ int main()
     
 }
 
+
+//funzione per scrivere un file di N record con N costante posta a 10
 void crea(char file[])
 {
 
@@ -106,7 +108,8 @@ void crea(char file[])
     fclose(err1);
 }
 
-
+/*funzione in C per leggere e stampare su monitor le informazioni del file di record (si usi il controllo di fine file e 
+non il ciclo for con N perché la funzione sia vali da quale che sia il numero di record del file (quindi anche diverso da N))*/
 void stampa(char file[])
 {
     FILE * err1 = fopen(file, "rb");
@@ -130,6 +133,7 @@ void stampa(char file[])
     
 }
 
+/*conta quante volte è presente uno studente che ha il cognome uguale alla stringa passata in output; la funzione restituisce un intero*/
 int ricercaCog(char cogn[], char file[])
 {
 	FILE * err1 = fopen(file, "rb");
@@ -143,6 +147,7 @@ int ricercaCog(char cogn[], char file[])
     return cont;
 }
 
+/*per ogni studente visualizza il suo cognome, la media dei suoi voti, il suo voto più alto e il suo voto più basso. */
 void InfVoti(char file[])
 {
 	FILE * err1 = fopen(file, "rb");
@@ -174,6 +179,8 @@ void InfVoti(char file[])
     fclose(err1);
 }
 
+/*la funzione cerca un cognome (stringa passata come parametro) nel file e restituisce la posizione della sua prima occorrenza. 
+(Es .se il cognome è trovato come 2° record si restituisce 2). Si restituisca  -1  se non esiste quel cognome nel file.*/
 int trova(char file[], char nome[])
 {
     FILE * err1 = fopen(file, "rb");
@@ -197,7 +204,8 @@ int trova(char file[], char nome[])
     fclose(err1);
 }
 
-
+/* la funzione cerca un cognome (stringa passata come parametro) nel file e restituisce la posizione della sua ultima occorrenza. 
+(es .se il cognome è trovato come 2° record ma anche come 5° -e poi basta- si restituisce 5). Si restituisca  -1  se non esiste quel cognome nel file.*/
 int trovaFine(char file[], char nome[])
 {
     FILE * err1 = fopen(file, "rb");
@@ -220,6 +228,7 @@ int trovaFine(char file[], char nome[])
     fclose(err1);
 }
 
+/* Funzione che restituisce quanti record ci sono nel file*/
 int contaRecord(char file[])
 {
     FILE * err1 = fopen(file, "rb");
