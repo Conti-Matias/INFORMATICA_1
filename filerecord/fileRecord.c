@@ -44,6 +44,7 @@ int trovaFine(char[], char[]);
 
 int contaRecord(char[]);
 
+int modifica(char[], char[], char[]);
 
 int main()
 {
@@ -175,30 +176,6 @@ void InfVoti(char file[])
 
 int trova(char file[], char nome[])
 {
-    FILE * fp = fopen(file, "rb");
-
-    alunno buffer;
-    int c=-1;
-
-    if(fp!=NULL)
-        while(!feof(fp))
-        {
-            fread(&buffer, sizeof(alunno), 1, fp);
-
-            if(strcmp(buffer.cognome, nome)==0) 
-            {
-                c = ftell(fp) / sizeof(alunno);
-                break;
-            }
-        }
-
-    return c;
-    fclose(fp);
-}
-
-
-int trovaFine(char file[], char nome[])
-{
     FILE * err1 = fopen(file, "rb");
 
     alunno buffer;
@@ -212,6 +189,30 @@ int trovaFine(char file[], char nome[])
             if(strcmp(buffer.cognome, nome)==0) 
             {
                 c = ftell(err1) / sizeof(alunno);
+                break;
+            }
+        }
+
+    return c;
+    fclose(err1);
+}
+
+
+int trovaFine(char file[], char nome[])
+{
+    FILE * err1 = fopen(file, "rb");
+
+    alunno s1;
+    int c=-1;
+
+    if(err1!=NULL)
+        while(!feof(err1))
+        {
+            fread(&s1, sizeof(alunno), 1, err1);
+
+            if(strcmp(s1.cognome, nome)==0) 
+            {
+                c = ftell(err1) / sizeof(alunno);
             }
         }
 
@@ -223,14 +224,14 @@ int contaRecord(char file[])
 {
     FILE * err1 = fopen(file, "rb");
 
-    int d = -1;
+    int s = -1;
 
     if(err1!=NULL)
     {
         fseek(err1, 0, SEEK_END);
-        d=ftell(err1);
+        s=ftell(err1);
     }
 
-    return d/sizeof(alunno);
+    return s/sizeof(alunno);
 
 }
