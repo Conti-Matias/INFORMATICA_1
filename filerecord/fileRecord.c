@@ -63,11 +63,11 @@ int main()
 	
 	InfVoti("alunni.dat");
 	
-	r = trova("alunni.dat", "Matias");
-    printf("\nposizione primo Matias: %d\n", r);
+	r = trova("alunni.dat", "conti");
+    printf("\nposizione primo conti: %d\n", r);
     
-    r = trovaFine("alunni.dat", "Matias");
-    printf("\nposizione ultimo Matias: %d\n", r);
+    r = trovaFine("alunni.dat", "conti");
+    printf("\nposizione ultimo conti: %d\n", r);
 
     r = contaRecord("alunni.dat");
     printf("\ndimensione file: %d record\n", r);
@@ -155,7 +155,7 @@ void InfVoti(char file[])
 {
 	FILE * err1 = fopen(file, "rb");
     alunno s1;
-    int m = 0, max = 0, min = 0;
+    int m = 0, max = 0, min = 10;
 
     while(fread(&s1, sizeof(alunno), 1, err1)>0)
         {
@@ -166,9 +166,11 @@ void InfVoti(char file[])
             {
                 m+=s1.voti[j];
 
-                if(max < s1.voti[j]) max = s1.voti[j];
+                if(max < s1.voti[j]) 
+					max = s1.voti[j];
 
-                if(min > s1.voti[j]) min = s1.voti[j];
+                if(min > s1.voti[j]) 
+					min = s1.voti[j];
             }
 
             m/=V;
@@ -184,7 +186,7 @@ void InfVoti(char file[])
 
 /*la funzione cerca un cognome (stringa passata come parametro) nel file e restituisce la posizione della sua prima occorrenza. 
 (Es .se il cognome è trovato come 2° record si restituisce 2). Si restituisca  -1  se non esiste quel cognome nel file.*/
-int trova(char file[], char nome[])
+int trova(char file[], char cog[])
 {
     FILE * err1 = fopen(file, "rb");
 
@@ -194,7 +196,7 @@ int trova(char file[], char nome[])
     if(err1!=NULL)
         while(fread(&s1, sizeof(alunno), 1, err1)>0)
         {
-            if(strcmp(s1.cognome, nome)==0) 
+            if(strcmp(s1.cognome, cog)==0) 
             {
                 c = ftell(err1) / sizeof(alunno);
                 break;
@@ -207,7 +209,7 @@ int trova(char file[], char nome[])
 
 /* la funzione cerca un cognome (stringa passata come parametro) nel file e restituisce la posizione della sua ultima occorrenza. 
 (es .se il cognome è trovato come 2° record ma anche come 5° -e poi basta- si restituisce 5). Si restituisca  -1  se non esiste quel cognome nel file.*/
-int trovaFine(char file[], char nome[])
+int trovaFine(char file[], char cog[])
 {
     FILE * err1 = fopen(file, "rb");
 
@@ -217,7 +219,7 @@ int trovaFine(char file[], char nome[])
     if(err1!=NULL)
         while(fread(&s1, sizeof(alunno), 1, err1)>0)
         {
-            if(strcmp(s1.cognome, nome)==0) 
+            if(strcmp(s1.cognome, cog)==0) 
             {
                 c = ftell(err1) / sizeof(alunno);
             }
@@ -256,14 +258,14 @@ int modifica(char file[], char c1[], char c2[])
         {
             if(strcmp(s1.cognome, c1)==0)
             {
+            	c++;
                 strcpy(s1.cognome, c2);
                 fseek(err1, -sizeof(alunno), SEEK_CUR);
                 fwrite(&s1, sizeof(alunno), 1, err1);
-                c++;
+                
             }
         }
     }
     fclose(err1);
     return c;
 }
-
