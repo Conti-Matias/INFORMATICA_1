@@ -77,11 +77,9 @@ int main()
     
 }
 
-
 //funzione per scrivere un file di N record con N costante posta a 10
 void crea(char file[])
 {
-
     alunno s1;
     FILE * err1 = fopen(file, "wb");
 
@@ -119,18 +117,18 @@ void stampa(char file[])
     alunno s1;
     while(fread(&s1, sizeof(alunno), 1, err1)>0)
     {
-        printf("\n\n--DATI STUDENTE--\n\n");
+        printf("\n--DATI STUDENTE--\n");
 
         printf("numero matricola: %d\n", s1.matricola);
         printf("cognome: %s\n", s1.cognome);
         printf("nome: %s\n", s1.nome);
         printf("giorno di nascita: %d/%d/%d\n", s1.nascita.gg, s1.nascita.mm, s1.nascita.aa);
-        printf("-voti-\n");
+        printf("-voti:\t");
         for(int j = 0; j<V; j++)
 		{
             printf("%d\t", s1.voti[j]);
         }
-        printf("\n\n");
+        printf("\n");
     }
     fclose(err1);
     
