@@ -8,13 +8,32 @@ class Frazione {
         int denominatore;
 
     public:
-        Frazione () {}; //costuttore
-        int aiuto;
-        void setnumeratore(int n)
+        Frazione () //costuttore
+		{
+			numeratore=1;
+			denominatore=1;
+        }
+       
+	    Frazione (int x) //costuttore
+		{
+			numeratore=x;
+			denominatore=1;
+        }
+        
+        Frazione (int x, int y) //costuttore
+		{
+			numeratore=x;
+			denominatore=y;
+        }
+		
+		int aiuto;
+        
+		void setnumeratore(int n)
         {
             numeratore=n;
         }
-        void setdenominatore(int d)
+        
+		void setdenominatore(int d)
         {
             denominatore=d;
         }
@@ -33,7 +52,8 @@ class Frazione {
         {
             cout<< numeratore << "/" << denominatore << endl;
         }
-        void semplifica ()
+       
+	    void semplifica ()
         {
             int min;
             min=MCD(numeratore,denominatore);
@@ -66,8 +86,7 @@ int main ()
     f1.setnumeratore(n);
     f1.setdenominatore(d);
     f1.stampa();
-
-    f1.semplifica();
+	f1.semplifica();
     f1.stampa();
 
 }
