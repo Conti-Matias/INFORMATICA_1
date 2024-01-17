@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 
+using namespace std;
+
 class Rettangolo {
 private:
     double base;
@@ -8,19 +10,27 @@ private:
 
 public:
     // Costruttore senza parametri
-    Rettangolo(){}
+    Rettangolo()
+	{
+		base=1;
+		altezza=1;
+	}
 
     // Costruttore con 2 parametri
-    Rettangolo(double b, double h){}
+    Rettangolo(double base, double altezza)
+	{
+		this -> base=base;
+		this -> altezza=altezza;
+	}
 
     // Metodi set e get per base e altezza
-    void setBase(double b) 
+    void setBase(double base) 
 	{ 
-		base = b; 
+		this -> base = base; 
 	}
-    void setAltezza(double h) 
+    void setAltezza(double altezza) 
 	{ 
-		altezza = h; 
+		this -> altezza = altezza; 
 	}
     double getBase() 
 	{ 
@@ -45,13 +55,14 @@ public:
 		return sqrt(base * base + altezza * altezza); 
 	}
 
-    void stampaTutto() const 
+    void stampaTutto() 
 	{
-        std::cout << "Base: " << base << std::endl;
-        std::cout << "Altezza: " << altezza << std::endl;
-        std::cout << "Area: " << calcolaArea() << std::endl;
-        std::cout << "Perimetro: " << calcolaPerimetro() << std::endl;
-        std::cout << "Diagonale: " << calcolaDiagonale() << std::endl;
+		cout << "\n\nPOLIGONO " ;
+        cout << "\nBase: " << base;
+        cout << "\nAltezza: " << altezza;
+        cout << "\nArea: " << calcolaArea();
+        cout << "\nPerimetro: " << calcolaPerimetro();
+        cout << "\nDiagonale: " << calcolaDiagonale();
     }
 };
 
@@ -61,10 +72,12 @@ int main() {
 
     // Creazione di un secondo oggetto con il costruttore con parametri
     Rettangolo r2(3.0, 4.0);
+    
+    r1.setBase(5);
+    r1.setAltezza(7);
 
     // Chiamata dei metodi in modo opportuno
     r1.stampaTutto();
-    std::cout << std::endl;
     r2.stampaTutto();
 
     return 0;
