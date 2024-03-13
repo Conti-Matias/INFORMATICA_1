@@ -91,10 +91,10 @@ class Moto extends Veicolo {
 public class testVeicoli {
     public static void main(String[] args) {
 
-        Automobile a1 = new Automobile("ferrari", 2020, 3, 2);
+        Automobile a1 = new Automobile("fiat", 2015, 5, 4);
         a1.descrizione();
 
-        Moto m1 = new Moto("ducati", 2023, 125);
+        Moto m1 = new Moto("bmw", 2017, 450);
         m1.descrizione();
     }
 }
