@@ -18,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Validation
 $error = '';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error .= 'Email non valida.<br>';
+    $error .= 'Email invalida.<br>';
 }
 if (strpos($username, $nome) || strpos($username, $cognome)) {
-    $error .= 'Username non valido.<br>';
+    $error .= 'Username invalido.<br>';
 }
 
 ?>
